@@ -1,0 +1,6 @@
+ru:
+  activeadmin:
+    settings:
+      name: 'Параметры'
+      save: 'Сохранить'
+      saved: 'Сохранено'
