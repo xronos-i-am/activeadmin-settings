@@ -25,6 +25,13 @@ $ ->
       hide_label(saved_label, el)
     ), 1000
 
+  $('#settings .editor_link').click (e) ->
+    e.preventDefault()
+    $(this).hide()
+    $(this).closest('tr').find('.editor_remove_link').show()
+    instance = $(this).closest('tr').find('textarea').attr('id')
+    CKEDITOR.replace instance
+
   $('#settings .update_link').click (e) ->
     e.preventDefault()
     btn = $(this)

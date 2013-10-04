@@ -22,10 +22,8 @@
                 <%= f.input :file, hint: setting.value %>
                 <%= f.input :remove_file, as: :boolean %>
               <% when 'text' %>
-                <%= f.input :string, as: :text %>
-              <% when 'ckeditor' %>
                 <li>
-                <%= text_area_tag 'setting[string]', setting.value, id: "setting#{setting.id}", class: 'ckeditor' %>
+                <%= text_area_tag 'setting[string]', setting.value, id: "setting#{setting.id}" %>
                 </li>
               <% else %>
                 <%= f.input :string, as: :string, placeholder: ("Default: #{setting.default_value}" unless setting.default_value.empty?)  %>
@@ -35,6 +33,9 @@
         </div>
       </td>
       <td>
+        <%- if setting.type == 'text' %>
+            <a href="#" class="member_link editor_link" data-id="#setting_<%= setting.id %>"><%= I18n.t('activeadmin.settings.editor') %></a>
+        <%- end %>
         <a href="#" class="member_link update_link" data-id="#setting_<%= setting.id %>"><%= I18n.t('activeadmin.settings.save') %></a>
         <span class="saved-state"><%= I18n.t('activeadmin.settings.saved') %></span>
       </td>
