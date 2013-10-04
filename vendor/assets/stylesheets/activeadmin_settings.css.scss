@@ -1,10 +1,20 @@
 //= require_self
 
 #settings {
-  tr th:first-child { width:30%; }
-  tr th:last-child { width:15%; }
 
-  .update_link { display: none; }
+  .activeadmin_settings_setting li {
+    padding-right: 20px;
+
+    .cke_skin_kama {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  tr th:first-child { width: 200px; }
+  tr th:last-child { width: 100px; }
+
+  //.update_link { display: none; }
   .saved-state { display:none; }
   
   .option-type-html {

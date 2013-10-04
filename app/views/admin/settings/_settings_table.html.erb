@@ -23,8 +23,10 @@
                 <%= f.input :remove_file, as: :boolean %>
               <% when 'text' %>
                 <%= f.input :string, as: :text %>
-              <% when 'html' %>
-                <%= f.input :string, as: :text, input_html: { class: 'settings-editor' } %>
+              <% when 'ckeditor' %>
+                <li>
+                <%= text_area_tag 'setting[string]', setting.value, id: "setting#{setting.id}", class: 'ckeditor' %>
+                </li>
               <% else %>
                 <%= f.input :string, as: :string, placeholder: ("Default: #{setting.default_value}" unless setting.default_value.empty?)  %>
               <% end %>

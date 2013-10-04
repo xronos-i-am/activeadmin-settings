@@ -21,12 +21,18 @@ $ ->
     saved_label.show()
     hide_label = (label, btn) -> label.fadeOut => btn.show()
 
-    setTimeout ( -> hide_label(saved_label, el) ), 1000
+    setTimeout ( ->
+      hide_label(saved_label, el)
+    ), 1000
 
   $('#settings .update_link').click (e) ->
     e.preventDefault()
     btn = $(this)
     tr  = $(btn.attr("data-id"))
+
+    if CKEDITOR?
+      for instanceName of CKEDITOR.instances
+        CKEDITOR.instances[instanceName].updateElement()
 
     form = tr.find(".form form")
     form.ajaxSubmit
@@ -37,5 +43,5 @@ $ ->
         if form.parent().hasClass("html")
           show_saved_state(btn)
         else
-          btn.hide()
+          show_saved_state(btn)
 
