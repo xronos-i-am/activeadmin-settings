@@ -73,7 +73,6 @@ module ActiveadminSettings
   else
     class Setting < ActiveRecord::Base
       include SettingMethods
-      attr_accessible :name, :string, :file, :remove_file
 
       def self.[](name)
         find_or_create_by_name(name).value
