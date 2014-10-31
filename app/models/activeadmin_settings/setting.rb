@@ -75,7 +75,7 @@ module ActiveadminSettings
       include SettingMethods
 
       def self.[](name)
-        find_or_create_by_name(name).value
+        find_or_create_by(name: name).value
       end
     end
   end

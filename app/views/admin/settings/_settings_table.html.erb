@@ -33,9 +33,6 @@
         </div>
       </td>
       <td>
-        <%- if setting.type == 'text' %>
-            <a href="#" class="member_link editor_link" data-id="#setting_<%= setting.id %>"><%= I18n.t('activeadmin.settings.editor') %></a>
-        <%- end %>
         <a href="#" class="member_link update_link" data-id="#setting_<%= setting.id %>"><%= I18n.t('activeadmin.settings.save') %></a>
         <span class="saved-state"><%= I18n.t('activeadmin.settings.saved') %></span>
       </td>
