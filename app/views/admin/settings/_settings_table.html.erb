@@ -25,6 +25,8 @@
                 <li>
                 <%= text_area_tag 'setting[string]', setting.value, id: "setting#{setting.id}" %>
                 </li>
+              <% when 'boolean' %>
+                <%= f.input :string, as: :boolean, label: '' %>
               <% else %>
                 <%= f.input :string, as: :string, placeholder: ("Default: #{setting.default_value}" unless setting.default_value.empty?)  %>
               <% end %>
