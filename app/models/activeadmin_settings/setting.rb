@@ -67,7 +67,13 @@ module ActiveadminSettings
       include SettingMethods
 
       def self.[](name)
-        find_or_create_by(name: name).value
+        Rails.cache.fetch "setting_#{name}", expires_in: 5.minutes do
+          find_or_create_by(name: name).value
+        end
+      end
+
+      after_save do
+        Rails.cache.delete "setting_#{name}"
       end
     end
   else
@@ -75,7 +81,13 @@ module ActiveadminSettings
       include SettingMethods
 
       def self.[](name)
-        find_or_create_by(name: name).value
+        Rails.cache.fetch "setting_#{name}", expires_in: 5.minutes do
+          find_or_create_by(name: name).value
+        end
+      end
+
+      after_save do
+        Rails.cache.delete "setting_#{name}"
       end
     end
   end
