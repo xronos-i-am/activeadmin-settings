@@ -1,5 +1,5 @@
 class ActiveadminSettings::SettingsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def update
     @object = ActiveadminSettings::Setting.find(params[:id])
